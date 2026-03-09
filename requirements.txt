@@ -1,0 +1,21 @@
+# Kokoro TTS engine (PyTorch-based, supports CUDA GPU)
+kokoro>=0.9.4
+
+# PyTorch with CUDA support - install separately:
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# The above is for CUDA 12.1. Adjust for your CUDA version.
+
+# EPUB parsing
+ebooklib>=0.18
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# Audio processing
+soundfile>=0.12.0
+numpy>=1.24.0
+
+# Progress display
+tqdm>=4.66.0
+
+# espeak-ng phonemizer (required by kokoro)
+# Windows: Download installer from https://github.com/espeak-ng/espeak-ng/releases
