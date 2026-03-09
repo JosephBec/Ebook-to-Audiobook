@@ -41,6 +41,8 @@ class BookMetadata:
     language: str = "en"
     chapters: List[Chapter] = field(default_factory=list)
     total_word_count: int = 0
+    cover_image: Optional[bytes] = None
+    cover_image_ext: str = "jpg"
 
 
 def clean_html_to_text(html_content: str) -> str:
@@ -75,6 +77,25 @@ def clean_html_to_text(html_content: str) -> str:
     return text.strip()
 
 
+def clean_chapter_title(title: str) -> str:
+    """
+    Clean up a chapter title by removing redundant leading numbers.
+
+    Some EPUBs format headings like '34 34. Problem' or '1 01. Birth'
+    where the chapter number appears twice. This strips the redundant
+    leading number, producing '34. Problem' or '01. Birth'.
+    """
+    # Match patterns like "34 34. Title" or "1 01. Title" (number, space, same-or-zeropadded number, dot)
+    match = re.match(r'^(\d+)\s+(\d+[\.\):\-\s])', title)
+    if match:
+        leading_num = int(match.group(1))
+        second_num = int(re.match(r'\d+', match.group(2)).group())
+        if leading_num == second_num:
+            return title[match.end(1):].lstrip()
+
+    return title
+
+
 def extract_chapter_title(html_content: str, fallback_title: str) -> str:
     """
     Try to extract a chapter title from HTML content.
@@ -89,9 +110,104 @@ def extract_chapter_title(html_content: str, fallback_title: str) -> str:
         if heading:
             title = heading.get_text(strip=True)
             if title and len(title) < 200:  # Sanity check on length
-                return title
+                return clean_chapter_title(title)
 
     return fallback_title
+
+
+def extract_cover_image(book: epub.EpubBook) -> tuple:
+    """
+    Extract the cover image from an EPUB file.
+
+    Tries multiple strategies:
+    1. Look for an item with 'cover' in its properties (EPUB3 standard).
+    2. Look for metadata referencing a cover image ID.
+    3. Look for image items with 'cover' in their filename.
+
+    Args:
+        book: An ebooklib EpubBook object.
+
+    Returns:
+        Tuple of (image_bytes, extension) or (None, 'jpg') if no cover found.
+    """
+    def _get_ext(media_type: str, filename: str) -> str:
+        """Determine file extension from media type or filename."""
+        if "png" in media_type or filename.lower().endswith(".png"):
+            return "png"
+        if "gif" in media_type or filename.lower().endswith(".gif"):
+            return "gif"
+        if "webp" in media_type or filename.lower().endswith(".webp"):
+            return "webp"
+        return "jpg"
+
+    # Strategy 1: EPUB3 cover-image property
+    for item in book.get_items_of_type(ebooklib.ITEM_IMAGE):
+        props = item.get_content()
+        # Check if the item has cover properties set
+        if hasattr(item, 'is_chapter') and not item.is_chapter():
+            pass
+        item_name = item.get_name().lower()
+        # Some EPUB3 books set properties="cover-image" on the cover item
+        try:
+            if hasattr(item, 'properties') and item.properties and 'cover-image' in item.properties:
+                logger.debug("Found cover via EPUB3 properties: %s", item.get_name())
+                return item.get_content(), _get_ext(item.media_type, item.get_name())
+        except Exception:
+            pass
+
+    # Strategy 2: Look for cover metadata reference
+    cover_meta = book.get_metadata("OPF", "cover")
+    if cover_meta:
+        cover_id = cover_meta[0][1].get("content", "") if len(cover_meta[0]) > 1 else ""
+        if cover_id:
+            for item in book.get_items():
+                if item.get_id() == cover_id:
+                    logger.debug("Found cover via OPF metadata (id=%s): %s", cover_id, item.get_name())
+                    return item.get_content(), _get_ext(item.media_type, item.get_name())
+
+    # Strategy 3: Look for image items with 'cover' in the name or ID
+    for item in book.get_items_of_type(ebooklib.ITEM_IMAGE):
+        name_lower = item.get_name().lower()
+        id_lower = (item.get_id() or "").lower()
+        if "cover" in name_lower or "cover" in id_lower:
+            logger.debug("Found cover via filename/id match: %s", item.get_name())
+            return item.get_content(), _get_ext(item.media_type, item.get_name())
+
+    # Strategy 4: If there's a cover XHTML page, find the image inside it
+    for item in book.get_items_of_type(ebooklib.ITEM_DOCUMENT):
+        name_lower = item.get_name().lower()
+        id_lower = (item.get_id() or "").lower()
+        if "cover" in name_lower or "cover" in id_lower:
+            try:
+                content = item.get_content().decode("utf-8", errors="replace")
+                soup = BeautifulSoup(content, "lxml")
+                img_tag = soup.find("img")
+                if img_tag and img_tag.get("src"):
+                    img_src = img_tag["src"]
+                    # Find the image item matching this src
+                    for img_item in book.get_items_of_type(ebooklib.ITEM_IMAGE):
+                        if img_item.get_name().endswith(img_src.split("/")[-1]):
+                            logger.debug("Found cover via cover page img tag: %s", img_item.get_name())
+                            return img_item.get_content(), _get_ext(img_item.media_type, img_item.get_name())
+            except Exception:
+                pass
+
+    # Strategy 5: Check ALL items for EpubCover or any item with 'cover' in its ID
+    # Some EPUBs use special cover types (e.g., EpubCover) that aren't ITEM_IMAGE
+    for item in book.get_items():
+        id_lower = (item.get_id() or "").lower()
+        type_name = type(item).__name__
+        if id_lower == "cover" or type_name == "EpubCover":
+            try:
+                content = item.get_content()
+                if content and len(content) > 1000:  # Must be a real image, not just markup
+                    ext = _get_ext(getattr(item, "media_type", ""), item.get_name())
+                    logger.debug("Found cover via EpubCover/id match: %s (type=%s)", item.get_name(), type_name)
+                    return content, ext
+            except Exception:
+                pass
+
+    return None, "jpg"
 
 
 def parse_epub(epub_path: str, min_chapter_words: int = 20) -> BookMetadata:
@@ -134,6 +250,14 @@ def parse_epub(epub_path: str, min_chapter_words: int = 20) -> BookMetadata:
         metadata.language = language[0][0]
 
     logger.info("Book: '%s' by %s (language: %s)", metadata.title, metadata.author, metadata.language)
+
+    # Extract cover image
+    metadata.cover_image, metadata.cover_image_ext = extract_cover_image(book)
+    if metadata.cover_image:
+        size_kb = len(metadata.cover_image) / 1024
+        logger.info("Cover image found: %.1f KB (%s)", size_kb, metadata.cover_image_ext)
+    else:
+        logger.info("No cover image found in EPUB")
 
     # Extract chapters from spine order
     chapter_index = 0

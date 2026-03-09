@@ -276,6 +276,10 @@ def run(args=None):
     print(f"  Language: {metadata.language}")
     print(f"  Chapters: {len(metadata.chapters)}")
     print(f"  Words:    {metadata.total_word_count:,}")
+    if metadata.cover_image:
+        print(f"  Cover:    Found ({len(metadata.cover_image) / 1024:.1f} KB, {metadata.cover_image_ext})")
+    else:
+        print(f"  Cover:    Not found")
 
     est_minutes = estimate_duration(metadata.total_word_count, opts.speed)
     print(f"  Est. Duration: ~{est_minutes:.0f} minutes")
@@ -384,6 +388,8 @@ def run(args=None):
             book_title=metadata.title,
             book_author=metadata.author,
             bitrate=opts.bitrate,
+            cover_image=metadata.cover_image,
+            cover_image_ext=metadata.cover_image_ext,
         )
 
         file_size_mb = result_path.stat().st_size / (1024 * 1024)

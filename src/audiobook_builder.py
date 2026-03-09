@@ -109,6 +109,8 @@ def build_m4b(
     book_title: str = "Audiobook",
     book_author: str = "Unknown",
     bitrate: str = "64k",
+    cover_image: Optional[bytes] = None,
+    cover_image_ext: str = "jpg",
     keep_temp: bool = False,
 ) -> Path:
     """
@@ -118,7 +120,7 @@ def build_m4b(
     1. Save each chapter as a temporary WAV file.
     2. Concatenate all WAVs into a single WAV.
     3. Create chapter metadata file.
-    4. Encode to M4B (AAC in MP4 container) with chapter markers.
+    4. Encode to M4B (AAC in MP4 container) with chapter markers and cover art.
 
     Args:
         chapter_audio: List of (chapter_title, audio_array) tuples.
@@ -126,6 +128,8 @@ def build_m4b(
         book_title: Book title for metadata.
         book_author: Book author for metadata.
         bitrate: AAC encoding bitrate (default: '64k', good for speech).
+        cover_image: Raw bytes of a cover image (JPEG/PNG), or None.
+        cover_image_ext: File extension for the cover image ('jpg', 'png', etc.).
         keep_temp: If True, don't delete temporary files.
 
     Returns:
@@ -206,17 +210,46 @@ def build_m4b(
             logger.error("ffmpeg concat failed:\n%s", result.stderr)
             raise RuntimeError(f"Failed to concatenate WAV files: {result.stderr}")
 
-        # Encode to M4B with metadata
+        # Save cover image if provided
+        cover_path = None
+        if cover_image:
+            cover_path = temp_path / f"cover.{cover_image_ext}"
+            with open(cover_path, "wb") as f:
+                f.write(cover_image)
+            logger.info("Cover image saved: %s (%.1f KB)", cover_path.name, len(cover_image) / 1024)
+
+        # Encode to M4B with metadata (and cover art if available)
         encode_cmd = [
             ffmpeg_path,
             "-y",
             "-i", str(combined_wav),
             "-i", str(metadata_path),
-            "-map_metadata", "1",
-            "-c:a", "aac",
-            "-b:a", bitrate,
-            "-ar", str(SAMPLE_RATE),
-            "-ac", "1",  # mono for speech
+        ]
+
+        if cover_path:
+            encode_cmd += ["-i", str(cover_path)]
+            # Map: 0=audio, 1=metadata, 2=cover image
+            encode_cmd += [
+                "-map", "0:a",
+                "-map", "2:v",
+                "-map_metadata", "1",
+                "-c:a", "aac",
+                "-b:a", bitrate,
+                "-ar", str(SAMPLE_RATE),
+                "-ac", "1",
+                "-c:v", "copy",
+                "-disposition:v", "attached_pic",
+            ]
+        else:
+            encode_cmd += [
+                "-map_metadata", "1",
+                "-c:a", "aac",
+                "-b:a", bitrate,
+                "-ar", str(SAMPLE_RATE),
+                "-ac", "1",
+            ]
+
+        encode_cmd += [
             "-metadata", f"title={book_title}",
             "-metadata", f"artist={book_author}",
             "-metadata", f"album={book_title}",
