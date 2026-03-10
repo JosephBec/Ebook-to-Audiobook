@@ -38,15 +38,22 @@ def setup_logging(verbose: bool = False, debug: bool = False):
 
 
 def print_banner():
-    """Print the application banner."""
-    banner = f"""
-╔══════════════════════════════════════════════════════════╗
-║              Ebook-to-Audiobook Converter                ║
-║           Powered by Kokoro TTS + CUDA GPU               ║
-║                     v{__version__}                              ║
-╚══════════════════════════════════════════════════════════╝
-"""
-    print(banner)
+    """Print the application banner with dynamically aligned box."""
+    lines = [
+        "Ebook-to-Audiobook Converter",
+        "Powered by Kokoro TTS + CUDA GPU",
+        f"v{__version__}",
+    ]
+    width = max(len(line) for line in lines) + 4  # padding on each side
+    print()
+    print(f"╔{'═' * width}╗")
+    for line in lines:
+        padding = width - len(line)
+        left = padding // 2
+        right = padding - left
+        print(f"║{' ' * left}{line}{' ' * right}║")
+    print(f"╚{'═' * width}╝")
+    print()
 
 
 def print_voices():
@@ -311,11 +318,13 @@ def run(args=None):
     # Determine output path
     if opts.output:
         output_path = Path(opts.output)
+        # If -o points to a directory (or ends with a separator), place the file inside it
+        if output_path.is_dir() or str(opts.output).endswith(('/', '\\')):
+            output_path = output_path / input_path.with_suffix(".m4b").name
+        elif output_path.suffix.lower() != ".m4b":
+            output_path = output_path.with_suffix(".m4b")
     else:
         output_path = input_path.with_suffix(".m4b")
-
-    if output_path.suffix.lower() != ".m4b":
-        output_path = output_path.with_suffix(".m4b")
 
     print(f"  Output:   {output_path}")
 

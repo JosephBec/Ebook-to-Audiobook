@@ -189,7 +189,7 @@ The tool prints progress as it works through each stage:
 ╔══════════════════════════════════════════════════════════╗
 ║              Ebook-to-Audiobook Converter                ║
 ║           Powered by Kokoro TTS + CUDA GPU               ║
-║                     v1.0.0                              ║
+║                     v1.0.0                               ║
 ╚══════════════════════════════════════════════════════════╝
 
 [1/4] Checking dependencies...
