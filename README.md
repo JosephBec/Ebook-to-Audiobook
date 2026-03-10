@@ -10,7 +10,9 @@ Kokoro is an open-weight text-to-speech model with 82 million parameters that de
 
 - **GPU-accelerated TTS** — Uses PyTorch + CUDA for fast synthesis on NVIDIA GPUs
 - **EPUB parsing** — Automatically extracts chapters, titles, and metadata
+- **Cover art extraction** — Automatically extracts the cover image from the EPUB and embeds it in the M4B file
 - **M4B output** — Produces audiobook files with embedded chapter markers, compatible with Apple Books, VLC, and other audiobook players
+- **Custom pronunciation** — Optional phoneme map files to correct pronunciation of foreign names and words (e.g., French names in *The Count of Monte Cristo*)
 - **Multiple voices** — 20+ built-in voices (male and female) across multiple languages
 - **Adjustable speed** — Control speech rate from 0.5x to 2.0x
 - **Interactive chapter selection** — Choose which chapters to convert, or convert the whole book
@@ -150,6 +152,38 @@ python main.py mybook.epub -v
 python main.py mybook.epub --debug
 ```
 
+### Custom Pronunciation with Phoneme Maps
+
+For books with foreign names and words (e.g., French names in classic literature), you can provide a phoneme map file to improve pronunciation:
+
+```bash
+python main.py mybook.epub --phoneme-map phoneme_maps/monte_cristo.txt -v
+```
+
+A phoneme map is a text file where each line maps a word to its IPA phonemes:
+
+```
+# Format: word | IPA phonemes | language
+dantès | d ɑ̃ t ɛ | fr
+mercédès | m ɛ ʁ s e d ɛ | fr
+villefort | v i l f ɔ ʁ | fr
+```
+
+The tool converts IPA phonemes into English phonetic respellings so the TTS engine pronounces them correctly. Pre-built maps are available in the `phoneme_maps/` directory:
+
+- **`phoneme_maps/monte_cristo.txt`** — 897 French/Italian/Latin words from *The Count of Monte Cristo*
+
+The `--phoneme-map` flag is entirely optional — omit it for books that don't need custom pronunciation.
+
+### Output to a Directory
+
+If `-o` points to a directory, the output file is automatically named after the EPUB:
+
+```bash
+python main.py mybook.epub -o "E:\Plex\Audiobooks\"
+# Creates: E:\Plex\Audiobooks\mybook.m4b
+```
+
 ## Real-World Example: Full Walkthrough
 
 Below is a complete, real example converting a light novel EPUB into an M4B audiobook — from start to finish.
@@ -266,7 +300,8 @@ python main.py "D:\Desktop\My Stuff\Books\Books\Light Novels\Birth of The Demoni
 usage: ebook2audiobook [-h] [-o OUTPUT] [--voice VOICE] [--speed SPEED]
                        [--lang-code LANG_CODE] [--bitrate BITRATE] [--cpu]
                        [--min-chapter-words MIN_CHAPTER_WORDS]
-                       [--chapters CHAPTERS] [-v] [--debug] [--list-voices]
+                       [--chapters CHAPTERS] [--phoneme-map PHONEME_MAP]
+                       [-v] [--debug] [--list-voices]
                        [input]
 
 positional arguments:
@@ -284,9 +319,10 @@ Processing Options:
   --cpu                 Force CPU mode
   --min-chapter-words N Minimum words to treat a section as a chapter (default: 20)
   --chapters CHAPTERS   Comma-separated chapter numbers (e.g., '1,2,5-10')
+  --phoneme-map FILE    Path to a phoneme map for custom pronunciation
 
 Output & Display:
-  -o, --output OUTPUT   Output M4B file path
+  -o, --output OUTPUT   Output M4B file path (or directory)
   -v, --verbose         Show detailed progress
   --debug               Show debug logging
   --list-voices         List available voices and exit
@@ -338,21 +374,24 @@ Ebook-to-Audiobook/
 ├── main.py                 # Entry point
 ├── requirements.txt        # Python dependencies
 ├── README.md               # This file
+├── phoneme_maps/           # Custom pronunciation maps (optional)
+│   ├── monte_cristo.txt    # French/Italian/Latin words for Monte Cristo
+│   └── monte_cristo_words.txt  # Source word list
 └── src/
     ├── __init__.py          # Package init
     ├── cli.py               # CLI argument parsing and orchestration
     ├── epub_parser.py       # EPUB file parsing and chapter extraction
-    ├── tts_engine.py        # Kokoro TTS engine with GPU support
-    └── audiobook_builder.py # M4B assembly with ffmpeg
+    ├── tts_engine.py        # Kokoro TTS engine with GPU support + phoneme maps
+    └── audiobook_builder.py # M4B assembly with ffmpeg + cover art
 ```
 
 ## How It Works
 
 1. **EPUB Parsing** (`epub_parser.py`): Reads the EPUB file, extracts chapters in spine order, strips HTML to clean text, and identifies chapter titles from heading tags.
 
-2. **TTS Synthesis** (`tts_engine.py`): Initializes the Kokoro-82M model on your GPU via PyTorch. Each chapter's text is fed through the pipeline, which handles text segmentation, phoneme conversion (via [misaki](https://github.com/hexgrad/misaki)), and audio generation at 24kHz.
+2. **TTS Synthesis** (`tts_engine.py`): Initializes the Kokoro-82M model on your GPU via PyTorch. If a phoneme map is provided, foreign words are replaced with phonetic respellings before synthesis. Each chapter's text is fed through the pipeline, which handles text segmentation, phoneme conversion (via [misaki](https://github.com/hexgrad/misaki)), and audio generation at 24kHz.
 
-3. **M4B Assembly** (`audiobook_builder.py`): Chapter audio is saved as temporary WAV files, concatenated, then encoded to AAC audio in an MP4 container (M4B) using ffmpeg. Chapter markers with titles and timestamps are embedded in the file metadata.
+3. **M4B Assembly** (`audiobook_builder.py`): Chapter audio is saved as temporary WAV files, concatenated, then encoded to AAC audio in an MP4 container (M4B) using ffmpeg. Chapter markers with titles and timestamps are embedded in the file metadata. If a cover image is found in the EPUB, it is embedded as cover art in the M4B.
 
 ## Performance
 
