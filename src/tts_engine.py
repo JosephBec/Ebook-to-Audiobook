@@ -6,8 +6,10 @@ Processes text in chunks and returns audio data at 24kHz sample rate.
 """
 
 import logging
+import re
 import time
-from typing import Optional, Generator, Tuple
+from pathlib import Path
+from typing import Dict, Optional, Generator, Tuple
 
 import numpy as np
 import torch
@@ -66,6 +68,135 @@ def list_voices(lang_code: str = "a") -> list:
     return voices
 
 
+def load_phoneme_map(map_path: str) -> Dict[str, str]:
+    """
+    Load a phoneme map file that maps foreign words to IPA phonemes.
+
+    The map is used to generate phonetic English spellings so the TTS
+    engine pronounces foreign names and words correctly.
+
+    Format: word | IPA phonemes | language
+    Lines starting with # are comments.
+
+    Args:
+        map_path: Path to the phoneme map text file.
+
+    Returns:
+        Dictionary mapping lowercase words to phonetic respellings.
+    """
+    path = Path(map_path)
+    if not path.exists():
+        raise FileNotFoundError(f"Phoneme map not found: {map_path}")
+
+    # IPA to English phonetic approximation mapping
+    ipa_to_english = {
+        # Vowels
+        'ɑ': 'ah', 'a': 'ah', 'æ': 'a', 'ɛ': 'eh', 'e': 'ay',
+        'i': 'ee', 'ɪ': 'ih', 'ɔ': 'aw', 'o': 'oh', 'u': 'oo',
+        'ʊ': 'oo', 'y': 'oo', 'ə': 'uh', 'œ': 'ur', 'ø': 'ur',
+        'ɛ̃': 'an', 'ɑ̃': 'on', 'ɔ̃': 'on', 'ɛ̃': 'an', 'ɑ̃': 'ahn',
+        'ɥ': 'w', 'w': 'w', 'j': 'y',
+        # Consonants
+        'ʁ': 'r', 'ʒ': 'zh', 'ʃ': 'sh', 'ɲ': 'ny', 'ŋ': 'ng',
+        'ɡ': 'g', 'ɣ': 'g', 'θ': 'th', 'ð': 'th',
+        't͡ʃ': 'ch', 'd͡ʒ': 'j', 't͡s': 'ts',
+        'ʎ': 'ly', 'ç': 'sh', 'ʔ': '',
+        # Simple passthrough
+        'b': 'b', 'd': 'd', 'f': 'f', 'g': 'g', 'k': 'k',
+        'l': 'l', 'm': 'm', 'n': 'n', 'p': 'p', 'r': 'r',
+        's': 's', 't': 't', 'v': 'v', 'z': 'z',
+    }
+
+    def ipa_to_respelling(ipa_str: str) -> str:
+        """Convert IPA phoneme string to an English phonetic respelling."""
+        phonemes = ipa_str.strip().split()
+        parts = []
+        for ph in phonemes:
+            # Remove stress marks
+            ph = ph.replace('ˈ', '').replace('ˌ', '')
+            if ph in ipa_to_english:
+                parts.append(ipa_to_english[ph])
+            # Try multi-char lookups
+            elif len(ph) > 1:
+                # Try to match known digraphs first
+                matched = False
+                for digraph in ['t͡ʃ', 'd͡ʒ', 't͡s']:
+                    if digraph in ph:
+                        parts.append(ipa_to_english[digraph])
+                        matched = True
+                        break
+                if not matched:
+                    # Fall back to char-by-char
+                    for ch in ph:
+                        if ch in ipa_to_english:
+                            parts.append(ipa_to_english[ch])
+            else:
+                parts.append(ph)
+        return ''.join(parts)
+
+    pronunciation_map = {}
+    count = 0
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts = line.split("|")
+            if len(parts) >= 2:
+                word = parts[0].strip().lower()
+                ipa = parts[1].strip()
+                respelling = ipa_to_respelling(ipa)
+                if respelling and respelling != word:
+                    pronunciation_map[word] = respelling
+                    count += 1
+
+    logger.info("Loaded %d pronunciation overrides from %s", count, map_path)
+    if count > 0:
+        # Log a few examples
+        examples = list(pronunciation_map.items())[:5]
+        for word, respelling in examples:
+            logger.info("  %s -> %s", word, respelling)
+
+    return pronunciation_map
+
+
+def apply_pronunciation_map(text: str, pmap: Dict[str, str]) -> str:
+    """
+    Replace words in text using the pronunciation map.
+
+    Does case-insensitive whole-word matching, preserving
+    the original capitalization pattern.
+
+    Args:
+        text: Input text.
+        pmap: Dictionary mapping lowercase words to phonetic respellings.
+
+    Returns:
+        Text with pronunciation replacements applied.
+    """
+    if not pmap:
+        return text
+
+    def replace_word(match):
+        original = match.group(0)
+        lower = original.lower()
+        if lower in pmap:
+            replacement = pmap[lower]
+            # Preserve capitalization
+            if original[0].isupper():
+                replacement = replacement[0].upper() + replacement[1:]
+            if original.isupper():
+                replacement = replacement.upper()
+            return replacement
+        return original
+
+    # Build a regex pattern that matches any mapped word (whole words only)
+    # Sort by length descending so longer matches take priority
+    sorted_words = sorted(pmap.keys(), key=len, reverse=True)
+    pattern = r'\b(' + '|'.join(re.escape(w) for w in sorted_words) + r')\b'
+    return re.sub(pattern, replace_word, text, flags=re.IGNORECASE)
+
+
 class TTSEngine:
     """
     Kokoro TTS engine with GPU acceleration.
@@ -80,6 +211,7 @@ class TTSEngine:
         speed: float = 1.0,
         lang_code: str = "a",
         device: Optional[str] = None,
+        phoneme_map_path: Optional[str] = None,
     ):
         """
         Initialize the TTS engine.
@@ -89,11 +221,16 @@ class TTSEngine:
             speed: Speech speed multiplier (0.5 = half speed, 2.0 = double speed).
             lang_code: Language code ('a' for American English, etc.).
             device: Force a specific device ('cuda' or 'cpu'). Auto-detects if None.
+            phoneme_map_path: Optional path to a phoneme map file for custom pronunciations.
         """
         self.voice = voice
         self.speed = speed
         self.lang_code = lang_code
         self.device = device or get_device()
+        self.pronunciation_map = {}
+
+        if phoneme_map_path:
+            self.pronunciation_map = load_phoneme_map(phoneme_map_path)
 
         logger.info("Initializing Kokoro TTS pipeline (lang=%s, voice=%s, speed=%.1f, device=%s)",
                      lang_code, voice, speed, self.device)
@@ -115,6 +252,10 @@ class TTSEngine:
             Tuples of (segment_index, segment_text, audio_array).
             Audio is a numpy float32 array at 24kHz sample rate.
         """
+        # Apply pronunciation overrides before synthesis
+        if self.pronunciation_map:
+            text = apply_pronunciation_map(text, self.pronunciation_map)
+
         generator = self.pipeline(
             text,
             voice=self.voice,

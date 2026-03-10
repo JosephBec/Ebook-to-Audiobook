@@ -163,6 +163,13 @@ Examples:
         help="Comma-separated list of chapter numbers to process (e.g., '1,2,5'). "
              "Processes all chapters if not specified.",
     )
+    proc_group.add_argument(
+        "--phoneme-map",
+        type=str,
+        default=None,
+        help="Path to a phoneme map file for custom pronunciation of foreign words. "
+             "Format: 'word | IPA phonemes | language' per line.",
+    )
 
     # Output options
     out_group = parser.add_argument_group("Output & Display")
@@ -337,6 +344,7 @@ def run(args=None):
             speed=opts.speed,
             lang_code=opts.lang_code,
             device=device,
+            phoneme_map_path=opts.phoneme_map,
         )
     except Exception as e:
         print(f"  Error initializing TTS engine: {e}")
@@ -346,6 +354,8 @@ def run(args=None):
     print(f"  Voice:    {opts.voice}")
     print(f"  Speed:    {opts.speed}x")
     print(f"  Device:   {engine.device}")
+    if engine.pronunciation_map:
+        print(f"  Phonemes: {len(engine.pronunciation_map)} custom pronunciations loaded")
 
     # Synthesize chapters
     print(f"\n[4/4] Synthesizing audio...")

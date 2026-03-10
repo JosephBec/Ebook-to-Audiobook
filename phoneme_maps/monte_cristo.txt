@@ -1,0 +1,902 @@
+# French/Foreign Word Phoneme Map
+# Generated from: french_words.txt
+# Format: word | IPA phonemes | detected language
+# Total: 897 mapped, 0 failed
+#
+abbé | a b e | fr
+aboukir | a b u k i ʁ | fr
+abugour | a b y ɡ u ʁ | fr
+abélard | a b e l a ʁ | fr
+académie | a k a d e m i | fr
+académies | a k a d e m i | fr
+accoules | a k u l | fr
+adah | a d a | fr
+adelmonte | a d ɛ l m ɔ̃ t | fr
+admirari | a d m i ʁ a ʁ i | la
+adrets | a d ʁ ɛ | fr
+aegyptus | a ʒ i p t y | la
+affettatore | a f f e t t a ˈt o r e | it
+aguado | a ɡ a d o | fr
+aigues | e ɡ | fr
+aimé | ɛ m e | fr
+alatri | a l a t ʁ i | fr
+albano | a l b a n o | fr
+alceste | a l s ɛ s t | fr
+alcmena | a l s m ə n a | fr
+alcorn | a l k ɔ ʁ n | fr
+aleria | a l ə ʁ j a | fr
+algeri | a l ʒ ə ʁ i | fr
+alguazils | a l ɡ a z i l | fr
+alicante | a l i k ɑ̃ t | fr
+allut | a l y | fr
+allée | a l e | fr
+allées | a l e | fr
+almo | a l m o | fr
+amasina | a m a z i n a | fr
+amédée | a m e d e | fr
+amélie | a m e l i | fr
+anagni | a n a ɲ i | fr
+andré | ɑ̃ d ʁ e | fr
+ange | ɑ̃ ʒ | fr
+angoulême | ɑ̃ ɡ u l ɛ m | fr
+anhelitu | ɑ̃ l i t y | la
+antibes | ɑ̃ t i b | fr
+antin | ɑ̃ t ɛ̃ | fr
+apicius | a p i s j y | fr
+aquapendente | a k a p ɑ̃ d ɑ̃ t | fr
+aquilo | a k i l o | fr
+arcole | a ʁ k ɔ l | fr
+ariosto | a ʁ j ɔ s t o | fr
+aristoloches | a ʁ i s t ɔ l ɔ ʃ | fr
+arlésienne | a ʁ l e z j ɛ n | fr
+arma | a ʁ m a | la
+armilly | a ʁ m i j i | fr
+arnould | a ʁ n u l d | fr
+arnstein | ʔ a ʁ n ʃ t ə ɪ n | de
+asmodée | a s m ɔ d e | fr
+assommoir | a s ɔ m w a ʁ | fr
+assunta | a s y t a | fr
+athalie | a t a l i | fr
+atreides | a t ʁ ɛ d | fr
+auteuil | o t ø j | fr
+avare | a v a ʁ | fr
+avia | a v j a | fr
+avrigny | a v ʁ i ɲ i | fr
+azur | a z y ʁ | fr
+azzo | a z z o | fr
+babuino | b a b u ˈi n o | it
+baccho | b a k k o | it
+badhaus | b a t a oː s | de
+bagni | b a ɲ ɲ i | it
+bagnères | b a ɲ ɛ ʁ | fr
+baldi | b a l d i | fr
+baptistin | b a p t i s t ɛ̃ | fr
+barbaro | ˈb a r b a r o | it
+barberi | b a r b e r i | it
+barchetta | b a r ˈk e t t a | it
+barrière | b a ʁ j ɛ ʁ | fr
+barrois | b a ʁ w a | fr
+bartolini | b a r t o ˈl i n i | it
+bastia | b a s t j a | fr
+beaucaire | b o k ɛ ʁ | fr
+beauharnais | b o a ʁ n ɛ | fr
+beaumarchais | b o m a ʁ ʃ ɛ | fr
+beaurepaire | b o ʁ ə p ɛ ʁ | fr
+beauveau | b o v o | fr
+beauvoisin | b o v w a z ɛ̃ | fr
+bedeau | b ə d o | fr
+bellegarde | b ɛ l ɡ a ʁ d | fr
+bellgarde | b ɛ l ɡ a ʁ d | fr
+bentivoglio | b e n ˈt i v o ʎ ʎ o | it
+beppo | b e p p o | it
+bertel | b ɛ ʁ t ɛ l | fr
+bertuccio | b ɛ ʁ t y k s j o | fr
+bidassoa | b i d a s w a | fr
+blacas | b l a k a | fr
+blanchet | b l ɑ̃ ʃ ɛ | fr
+blasé | b l a z e | fr
+boileau | b w a l o | fr
+boiteux | b w a t ø | fr
+bonifacio | b ɔ n i f a s j o | fr
+borgo | b ɔ ʁ ɡ o | fr
+borro | b ɔ ʁ o | fr
+bossuet | b ɔ s ɥ ɛ | fr
+bouc | b u k | fr
+bouillotte | b u j ɔ t | fr
+boulogne | b u l ɔ ɲ | fr
+bourges | b u ʁ ʒ | fr
+bourget | b u ʁ ʒ ɛ | fr
+bourmont | b u ʁ m ɔ̃ | fr
+bouteille | b u t ɛ j | fr
+boville | b ɔ v i l | fr
+boyador | b w a j a d ɔ ʁ | fr
+brabantio | b ʁ a b ɑ̃ s j o | fr
+bracciano | b r a t ˈt͡ʃ a n o | it
+bragelonne | b ʁ a ʒ ə l ɔ n | fr
+brasseur | b ʁ a s œ ʁ | fr
+breguet | b ʁ ə ɡ ɛ | fr
+britannicus | b ʁ i t a n i k y | fr
+brunhaut | b ʁ y n o | fr
+brézé | b ʁ e z e | fr
+burat | b y ʁ a | fr
+burckart | b ʊ ʁ k a ʁ t | de
+burgos | b y ʁ ɡ o | fr
+busento | b y z ɑ̃ t o | fr
+busoni | b y z ɔ n i | fr
+busonis | b y z ɔ n i | fr
+bénigne | b e n i ɲ | fr
+béranger | b e ʁ ɑ̃ ʒ e | fr
+bérard | b e ʁ a ʁ | fr
+cabanis | k a b a n i | fr
+cacus | k a k y | fr
+caderousse | k a d ʁ u s | fr
+café | k a f e | fr
+cahors | k a ɔ ʁ | fr
+caisserie | k ɛ s ʁ i | fr
+calpurnius | k a l p y ʁ n j y | la
+calseraigne | k a l s ə ʁ ɛ ɲ | fr
+cama | k a m a | fr
+camargue | k a m a ʁ ɡ | fr
+camélias | k a m e l j a | fr
+camöes | k a m | fr
+canebière | k a n b j ɛ ʁ | fr
+cangiar | k ɑ̃ ʒ j a ʁ | fr
+canimus | k a n i m y | la
+canova | k a n ɔ v a | fr
+capisco | k a p i s k o | fr
+capitaine | k a p i t ɛ n | fr
+capua | k a p ɥ a | fr
+carbonaro | k a ʁ b ɔ n a ʁ o | fr
+carceri | k a r t͡ʃ e r i | it
+carconte | k a ʁ k ɔ̃ t | fr
+carlini | k a r l i n i | it
+carné | k a ʁ n e | fr
+casauba | k a z o b a | fr
+casini | k a z i n i | it
+castaing | k a s t ɛ̃ | fr
+castel | k a s t ɛ l | fr
+castellana | k a s t e l l a n a | it
+catini | k a t i n i | it
+cauterets | k o t ʁ ɛ | fr
+cavalcante | k a v a l k a n t e | it
+cavalcanti | k a v a l k a n t i | it
+cavalcantis | k a v a l k a n t i s | it
+centigrammes | s ɑ̃ t i ɡ ʁ a m | fr
+cervetri | s ɛ ʁ v ɛ t ʁ i | fr
+cessato | s e s a t o | fr
+cessette | s ɛ s ɛ t | fr
+chabrol | ʃ a b ʁ ɔ l | fr
+chalais | ʃ a l ɛ | fr
+chambéry | ʃ ɑ̃ b e ʁ i | fr
+chandannagar | ʃ ɑ̃ d a n a ɡ a ʁ | fr
+changarnier | ʃ ɑ̃ ɡ a ʁ n j e | fr
+chapelle | ʃ a p ɛ l | fr
+chardonnet | ʃ a ʁ d ɔ n ɛ | fr
+charenton | ʃ a ʁ ɑ̃ t ɔ̃ | fr
+chargé | ʃ a ʁ ʒ e | fr
+chaussée | ʃ o s e | fr
+chimborazzo | ʃ ɛ̃ b ɔ ʁ a z z o | fr
+chroniques | k ʁ ɔ n i k | fr
+château | ʃ a t o | fr
+châteauroux | ʃ a t o ʁ u | fr
+châteaux | ʃ a t o | fr
+châtillon | ʃ a t i j ɔ̃ | fr
+cinna | s i n a | fr
+citadelle | s i t a d ɛ l | fr
+cito | s i t o | fr
+citorio | s i t ɔ ʁ j o | fr
+civita | t͡ʃ i v i t a | it
+claireville | k l ɛ ʁ v i l | fr
+claris | k l a ʁ i | fr
+claudo | k l o d o | fr
+clermont | k l ɛ ʁ m ɔ̃ | fr
+clovisses | k l ɔ v i s | fr
+clèves | k l ɛ v | fr
+cocles | k ɔ k l | fr
+coclès | k ɔ k l ɛ | fr
+colomba | k ɔ l ɔ̃ b a | fr
+colosseo | k o l o s ˈs ɛ o | it
+commandeur | k ɔ m ɑ̃ d œ ʁ | fr
+compagno | k o m ˈp a ɲ ɲ o | it
+compiègne | k ɔ̃ p j ɛ ɲ | fr
+comédie | k ɔ m e d i | fr
+conciergerie | k ɔ̃ s j ɛ ʁ ʒ ə ʁ i | fr
+condé | k ɔ̃ d e | fr
+conseils | k ɔ̃ s ɛ j | fr
+consommê | k ɔ̃ s ɔ m | fr
+constitutionnel | k ɔ̃ s t i t y s j ɔ n ɛ l | fr
+contadina | k o n t a d i n a | it
+contadine | k o n t a ˈd i n e | it
+contino | k o n t i n o | it
+conventionnel | k ɔ̃ v ɑ̃ s j ɔ n ɛ l | fr
+coralli | k o r a l l i | it
+cordier | k ɔ ʁ d j e | fr
+cornélie | k ɔ ʁ n e l i | fr
+corsaire | k ɔ ʁ s ɛ ʁ | fr
+corsinari | k ɔ ʁ s i n a ʁ i | fr
+corte | k ɔ ʁ t e | fr
+cortège | k ɔ ʁ t ɛ ʒ | fr
+coselli | k o s e l l i | it
+cotterêts | k ɔ t ə ʁ ɛ | fr
+couleuvre | k u l œ v ʁ | fr
+coupé | k u p e | fr
+cour | k u ʁ | fr
+crapara | k ʁ a p a ʁ a | fr
+cristo | k ʁ i s t o | fr
+croisille | k ʁ w a z i l | fr
+crème | k ʁ ɛ m | fr
+crémone | k ʁ e m ɔ n | fr
+crêpe | k ʁ ɛ p | fr
+cucumetto | k y k y m ɛ t o | fr
+cupitor | k y p i t ɔ ʁ | la
+curtius | k y ʁ t j y | la
+curé | k y ʁ e | fr
+custodio | k y s t ɔ d j o | fr
+cyprien | s i p ʁ j ɛ̃ | fr
+célèbres | s e l ɛ b ʁ | fr
+cénacle | s e n a k l | fr
+daguesseau | d a ɡ ɛ s o | fr
+dandré | d ɑ̃ d ʁ e | fr
+danglars | d ɑ̃ ɡ l a ʁ | fr
+dans | d ɑ̃ | fr
+dantè | d ɑ̃ t | fr
+dantès | d ɑ̃ t ɛ | fr
+daume | d o m | fr
+dauphiné | d o f i n e | fr
+debray | d ə b ʁ ɛ | fr
+decapitato | d e k a p i ˈt a t o | it
+decesaris | d ə s z a ʁ i | fr
+deforges | d ə f ɔ ʁ ʒ | fr
+deianira | d ə j a n i ʁ a | fr
+deidamia | d ɛ d a m j a | fr
+delaunay | d ə l o n ɛ | fr
+delle | d e l l e | it
+delvino | d ɛ l v i n o | fr
+denfert | d ɑ̃ f ɛ ʁ | fr
+deniseau | d ə n i z o | fr
+dentro | ˈd e n t r o | it
+deschamps | d ɛ ʃ ɑ̃ | fr
+desmoutiers | d ɛ s m u t j e | fr
+desrues | d ʁ y | fr
+devedeux | d ə v d ø | fr
+devoret | d ə v ɔ ʁ ɛ | fr
+diavolaccio | d j a v o l a t t͡ʃ o | it
+dictionnaire | d i k s j ɔ n ɛ ʁ | fr
+didier | d i d j e | fr
+dieppe | d j ɛ p | fr
+dieu | d j ø | fr
+domenico | d o m e n i k o | it
+domum | d ɔ m y m | la
+dorante | d ɔ ʁ ɑ̃ t | fr
+dous | d u | fr
+dragées | d ʁ a ʒ e | fr
+drapeau | d ʁ a p o | fr
+droult | d ʁ u | fr
+dubuquoi | d y b y k w a | fr
+duchampy | d y ʃ ɑ̃ p i | fr
+duchâtel | d y ʃ a t ɛ l | fr
+ducis | d y s i | fr
+duprez | d y p ʁ e | fr
+dupré | d y p ʁ e | fr
+durand | d y ʁ ɑ̃ | fr
+débats | d e b a | fr
+début | d e b y | fr
+décimes | d e s i m | fr
+décor | d e k ɔ ʁ | fr
+département | d e p a ʁ t ə m ɑ̃ | fr
+départements | d e p a ʁ t ə m ɑ̃ | fr
+député | d e p y t e | fr
+députés | d e p y t e | fr
+dévoilée | d e v w a l e | fr
+ecco | ˈɛ k k o | it
+edmé | ɛ d m e | fr
+egalité | ə ɡ a l i t e | fr
+eglise | e ɡ l i z | fr
+elba | ɛ l b a | fr
+elssler | ɛ l s l e | fr
+elysées | e l i z e | fr
+encyclopédie | ɑ̃ s i k l ɔ p e d i | fr
+enfer | ɑ̃ f ɛ ʁ | fr
+enghien | ɑ̃ ɡ j ɛ̃ | fr
+enlève | ɑ̃ l ɛ v | fr
+entrée | ɑ̃ t ʁ e | fr
+epinay | e p i n ɛ | fr
+errare | ɛ ʁ a ʁ | la
+eskeles | ɛ s k ɛ l | fr
+espagne | ɛ s p a ɲ | fr
+estrées | ɛ s t ʁ e | fr
+eugène | ø ʒ ɛ n | fr
+eugénie | ø ʒ e n i | fr
+evêque | ə v ɛ k | fr
+facchino | f a k ˈk i n o | it
+faccino | f a t ˈt͡ʃ i n o | it
+fainéants | f e n e ɑ̃ | fr
+faria | f a ʁ j a | fr
+fattore | f a t ˈt o r e | it
+faustina | f a u s t i n a | it
+façade | f a s a d | fr
+felice | f e ˈl i t͡ʃ e | it
+fenestrelle | f e n e s t r e l l e | it
+fenzi | f e n t͡s i | it
+ferentino | f e r e n ˈt i n o | it
+fernands | f ɛ ʁ n ɑ̃ | fr
+ferrade | f ɛ ʁ a d | fr
+ferrajo | f e r r a j o | it
+ferrand | f e ʁ ɑ̃ | fr
+ferrario | f e r ˈr a r j o | it
+ferrusino | f ɛ ʁ y z i n o | fr
+feuchère | f ø ʃ ɛ ʁ | fr
+feuchères | f ø ʃ ɛ ʁ | fr
+fiancé | f j ɑ̃ s e | fr
+fiancée | f i j ɑ̃ s e | fr
+fiano | f j a n o | it
+fichet | f i ʃ ɛ | fr
+fiesco | f j e s k o | it
+fiesole | f j e s o l e | it
+fiesque | f i k | fr
+flamel | f l a m ɛ l | fr
+flandre | f l ɑ̃ d ʁ | fr
+flavien | f l a v j ɛ̃ | fr
+florentin | f l ɔ ʁ ɑ̃ t ɛ̃ | fr
+flourens | f l u ʁ ɛ n s | fr
+fondi | f o n d i | it
+fontainebleau | f ɔ̃ t ɛ n b l o | fr
+fontana | f o n ˈt a n a | it
+fontenay | f ɔ̃ t n ɛ | fr
+fossin | f ɔ s ɛ̃ | fr
+francesca | f ʁ ɑ̃ s ɛ s k a | fr
+francesi | f r a n ˈt͡ʃ ɛ z i | it
+français | f ʁ ɑ̃ s ɛ | fr
+française | f ʁ ɑ̃ s ɛ z | fr
+françois | f ʁ ɑ̃ s w a | fr
+frapper | f ʁ a p e | fr
+frascati | f ʁ a s k a t i | fr
+frattina | f r a t t i n a | it
+fredegonde | f ʁ ɛ d ə ɡ ɔ̃ d | fr
+frioul | f ʁ i j u l | fr
+froid | f ʁ w a | fr
+frosinone | f ʁ o z i n ɔ n | fr
+frédérick | f ʁ e d e ʁ i k | fr
+fréjus | f ʁ e ʒ y | fr
+fugiens | f y ʒ j ɛ̃ | la
+fusaro | f y z a ʁ o | fr
+fécamp | f e k ɑ̃ | fr
+félix | f e l i k s | fr
+fénélon | f e n e l ɔ̃ | fr
+férou | f e ʁ u | fr
+gabii | ɡ a b i i | it
+gabri | ˈɡ a b r i | it
+gabrielle | ɡ a b ʁ i j ɛ l | fr
+gaeta | ɡ a e t a | it
+galland | ɡ a l ɑ̃ | fr
+garigliano | ɡ a ʁ i ɡ l i j a n o | fr
+gaspard | ɡ a s p a ʁ | fr
+gasparone | ˈɡ a s p a r o n e | it
+gaumard | ɡ o m a ʁ | fr
+gaîté | ɡ e t e | fr
+gerrit | ʒ e ʁ i | fr
+gherardesca | ɡ e ˈr a r d e s k a | it
+giaffar | ʒ j a f a ʁ | fr
+girardin | ʒ i ʁ a ʁ d ɛ̃ | fr
+giraud | ʒ i ʁ o | fr
+golfe | ɡ ɔ l f | fr
+gorgone | ɡ ɔ ʁ ɡ ɔ n | fr
+goriot | ɡ ɔ ʁ j o | fr
+gosset | ɡ ɔ s ɛ | fr
+gothard | ɡ ɔ t a ʁ | fr
+gozzi | ɡ o t t͡s i | it
+gracchi | ɡ ʁ a k i | fr
+graffan | ɡ ʁ a f ɑ̃ | fr
+graphein | ɡ ʁ a f ɛ̃ | fr
+grisi | ɡ ʁ i z i | fr
+grisier | ɡ ʁ i z j e | fr
+grotta | ˈɡ r ɔ t t a | it
+gryphius | ɡ ʁ i f j y | fr
+grétry | ɡ ʁ e t ʁ i | fr
+guadalquivir | ɡ w a d a l k i v i ʁ | fr
+guanouti | ɡ w a n u t i | fr
+guesclin | ɡ ɛ s k l ɛ̃ | fr
+guiccioli | ɡ w i t t͡ʃ o l i | it
+guiche | ɡ i ʃ | fr
+gurgy | ɡ y ʁ ʒ i | fr
+guyane | ɡ ɥ i j a n | fr
+guzla | ɡ e z l a | fr
+guénégaud | ɡ e n e ɡ o | fr
+général | ʒ e n e ʁ a l | fr
+gérard | ʒ e ʁ a ʁ | fr
+haoh | a o | fr
+harel | a ʁ ɛ l | fr
+harlay | a ʁ l e | fr
+haroun | a ʁ u n | fr
+haydée | a j d e | fr
+herbault | ɛ ʁ b o | fr
+hermine | ɛ ʁ m i n | fr
+herminie | ɛ ʁ m i n i | fr
+herrera | e ʁ ə ʁ a | fr
+historique | i s t ɔ ʁ i k | fr
+historiques | i s t ɔ ʁ i k | fr
+hobbema | ɔ b i m a | fr
+hobbemas | ɔ b ə m a | fr
+hommes | ɔ m | fr
+honoré | ɔ n ɔ ʁ e | fr
+horrida | ɔ ʁ i d a | la
+hozier | ɔ z j e | fr
+humann | y m a n | fr
+humanum | y m a n ɔ m | la
+huret | y ʁ ɛ | fr
+hyacinthe | j a s ɛ̃ t | fr
+hyères | j ɛ ʁ | fr
+héloïse | e l o i z | fr
+héron | e ʁ ɔ̃ | fr
+hôte | o t | fr
+hôtel | o t ɛ l | fr
+idole | i d ɔ l | fr
+impossibilium | ɛ̃ p ɔ s i b i l j ɔ m | la
+incredibilium | ɛ̃ k ʁ ə d i b i l j ɔ m | la
+independente | i n d e p e n d e n t e | it
+ingy | ɛ̃ ʒ i | fr
+institut | ɛ̃ s t i t y | fr
+italiana | i t a ˈl j a n a | it
+italien | i t a l j ɛ̃ | fr
+italiennes | i t a ˈl j ɛ n n e s | it
+jairus | ʒ ɛ ʁ y | fr
+janina | ʒ a n i n a | fr
+janinas | ʒ a n i n a | fr
+jannina | ʒ a n i n a | fr
+japhet | ʒ a f ɛ | fr
+jardinière | ʒ a ʁ d i n j ɛ ʁ | fr
+jarre | ʒ a ʁ | fr
+jaucourt | ʒ o k u ʁ | fr
+joannès | ʒ ɔ a n ɛ s | fr
+jornadès | ʒ ɔ ʁ n a d ɛ | fr
+josé | ʒ o z e | fr
+joséphine | ʒ o z e f i n | fr
+jourdain | ʒ u ʁ d ɛ̃ | fr
+juchault | ʒ y ʃ o | fr
+juperno | ʒ y p ɛ ʁ n o | fr
+jussienne | ʒ y s j ɛ n | fr
+justum | ʒ y s t y m | la
+kataphygion | k a t a f i ʒ j ɔ̃ | fr
+klagmann | k l a ɡ m a n | fr
+kobbir | k ɔ b i ʁ | fr
+kurchid | k œ ʁ ʃ i d | fr
+labessonie | l a b ɛ s ɔ n i | fr
+laborde | l a b ɔ ʁ d | fr
+labouret | l a b u ʁ ɛ | fr
+lacryma | l a k ʁ i m a | la
+laffitte | l a f i t | fr
+lamartine | l a m a ʁ t i n | fr
+lambesc | l ɑ̃ b | fr
+lamoricière | l a m ɔ ʁ i s j ɛ ʁ | fr
+lara | l a ʁ a | fr
+latere | l a t ɛ ʁ | la
+latude | l a t y d | fr
+lavagna | l a ˈv a ɲ ɲ a | it
+laye | l ɛ | fr
+lazare | l a z a ʁ | fr
+lebay | l ə b ɛ | fr
+leboucher | l ə b u ʃ e | fr
+lecharpal | l ə ʃ a ʁ p a l | fr
+leclère | l ɛ k l ɛ ʁ | fr
+lemaire | l e m ɛ ʁ | fr
+lemaître | l ə m ɛ t ʁ | fr
+lemprière | l ɑ̃ p ʁ i j ɛ ʁ | fr
+lepini | l e p i n i | it
+leroux | l e ʁ u | fr
+levasseur | l ə v a s œ ʁ | fr
+ligny | l i ɲ i | fr
+linas | l i n a | fr
+liège | l j ɛ ʒ | fr
+longone | l o n ɡ o n e | it
+loupian | l u p j ɑ̃ | fr
+lubaniev | l y b a n i v | fr
+luca | l u k a | it
+lucca | l u k k a | it
+lucher | l y ʃ e | fr
+luchon | l y ʃ ɔ̃ | fr
+lusiads | l y z j a | fr
+lycomedes | l i k ɔ m ɛ d | fr
+léo | l e o | fr
+léon | l e ɔ̃ | fr
+léopold | l e ɔ p ɔ l | fr
+lévy | l e v i | fr
+macaire | m a k ɛ ʁ | fr
+macello | m a ˈt͡ʃ ɛ l l o | it
+magendi | m a ʒ ɑ̃ d i | fr
+magendie | m a ʒ ɑ̃ d i | fr
+magistrat | m a ʒ i s t ʁ a | fr
+maglanowich | m a ɡ l a n ɔ w i ʃ | fr
+mahmud | m a m y d | fr
+malatesta | m a ˈl a t e s t a | it
+malgue | m a l ɡ | fr
+malherbe | m a l ɛ ʁ b | fr
+malibran | m a l i b ʁ ɑ̃ | fr
+mandaïa | m ɑ̃ d a j a | fr
+mandrier | m ɑ̃ d ʁ i j e | fr
+manfredi | m a n f r e d i | it
+maquet | m a k ɛ | fr
+maratte | m a ʁ a t | fr
+marciana | m a r ˈt͡ʃ a n a | it
+mareciana | m a r e ˈt͡ʃ a n a | it
+marennes | m a ʁ ɛ n | fr
+margottin | m a ʁ ɡ ɔ t ɛ̃ | fr
+mariage | m a ʁ j a ʒ | fr
+marigny | m a ʁ i ɲ i | fr
+marimas | m a ʁ i m a | fr
+marius | m a ʁ j y s | fr
+marlé | m a ʁ l e | fr
+marochetti | m a ʁ ɔ ʃ ɛ t i | fr
+marryat | m a ʁ j a | fr
+marthe | m a ʁ t | fr
+martigues | m a ʁ t i ɡ | fr
+maréchal | m a ʁ e ʃ a l | fr
+marécot | m a ʁ e k o | fr
+mascherata | m a s k e r a t a | it
+mastrilla | ˈm a s t r i l l a | it
+mathieu | m a t j ø | fr
+mathilde | m a t i l d | fr
+matignon | m a t i ɲ ɔ̃ | fr
+mattina | m a t ˈt i n a | it
+maudit | m o d i | fr
+mauléon | m o l e ɔ̃ | fr
+maure | m o ʁ | fr
+mazzolata | m a t t͡s o l ˈa t a | it
+mazzolato | m a t t͡s o l ˈa t o | it
+maître | m ɛ t ʁ | fr
+maîtres | m ɛ t ʁ | fr
+medora | m ə d ɔ ʁ a | fr
+mehmet | m e m ɛ | fr
+meilhan | m ɛ j a n | fr
+melchthal | m ɛ l ʃ t a l | fr
+mercédès | m ɛ ʁ s e d ɛ | fr
+meslay | m e s l ɛ | fr
+messager | m e s a ʒ e | fr
+messageries | m e s a ʒ ʁ i | fr
+messalina | m e s s a ˈl i n a | it
+metà | m e t a | fr
+michodière | m i ʃ ɔ d j ɛ ʁ | fr
+mieris | m i ʁ i | fr
+mineure | m i n œ ʁ | fr
+mio | ˈm i o | it
+miquelon | m i k ə l ɔ̃ | fr
+mithridites | m i t ʁ i d i t | fr
+mitidja | m i t i d ʒ a | fr
+mlle | m a d m w a z ɛ l | fr
+mlles | m l | fr
+mme | m a d a m | fr
+moccoletti | m o k k o l e t t i | it
+moccoletto | m o k k o l e t t o | it
+moccoli | m o k k o l i | it
+molière | m ɔ l j ɛ ʁ | fr
+molli | m o l l i | it
+molé | m ɔ l e | fr
+moniteur | m ɔ n i t œ ʁ | fr
+monsoreau | m ɔ̃ s ɔ ʁ o | fr
+montalivet | m ɔ̃ ɑ̃ l i v ɛ | fr
+montauban | m ɔ̃ t o b ɑ̃ | fr
+montlhéry | m ɔ̃ l e ʁ i | fr
+montredon | m ɔ̃ t ʁ ə d ɔ̃ | fr
+montyon | m ɔ̃ j ɔ̃ | fr
+montée | m ɔ̃ t e | fr
+morcerf | m ɔ ʁ s ɛ ʁ f | fr
+morcerfs | m ɔ ʁ s ɛ ʁ | fr
+morency | m ɔ ʁ ɑ̃ s i | fr
+morgion | m ɔ ʁ ʒ j ɔ̃ | fr
+morgiou | m ɔ ʁ ʒ j u | fr
+moriani | m ɔ ʁ j a n i | fr
+morrel | m o ʁ ɛ l | fr
+morrels | m ɔ ʁ ɛ l | fr
+mortefontaine | m ɔ ʁ t ə f ɔ̃ t ɛ n | fr
+mortemart | m ɔ ʁ t ə m a ʁ | fr
+mortemarts | m ɔ ʁ t ə m a ʁ | fr
+mortes | m ɔ ʁ t | fr
+morût | m ɔ ʁ y | fr
+motu | m ɔ t y | la
+mulus | m y l y | la
+muros | m y ʁ o s | fr
+musée | m y z e | fr
+myrto | m i ʁ t o | fr
+mystères | m i s t ɛ ʁ | fr
+mère | m ɛ ʁ | fr
+méduses | m e d y z | fr
+médéah | m e d e a | fr
+mémoires | m e m w a ʁ | fr
+ménilmontant | m e n i l m ɔ̃ t ɑ̃ | fr
+méran | m e ʁ ɑ̃ | fr
+mérans | m e ʁ ɑ̃ | fr
+mérimée | m e ʁ i m e | fr
+müller | m ʏ l ɐ | de
+napoleone | n a p o l e ˈo n e | it
+napoléon | n a p ɔ l e ɔ̃ | fr
+nargonne | n a ʁ ɡ ɔ n | fr
+navailles | n a v a j | fr
+naïve | n a i v | fr
+naïvely | n a i v l i | fr
+naïvety | n a i v t i | fr
+nelle | n ɛ l | fr
+nepos | n ə p o | la
+nettuno | ŋ e t t u n o | it
+neuf | n œ f | fr
+neuve | n œ v | fr
+noailles | n ɔ a j | fr
+noblet | n ɔ b l ɛ | fr
+nodier | n ɔ d j e | fr
+noirtier | n w a ʁ t j e | fr
+nonnes | n ɔ n | fr
+noyon | n ɛ j ɔ̃ | fr
+nuove | n w o v e | it
+née | n e | fr
+négligée | n e ɡ l i ʒ e | fr
+nîmes | n i m | fr
+odry | ɔ d ʁ i | fr
+odéon | ɔ d e ɔ̃ | fr
+oglio | o ʎ ʎ o | it
+oileus | w a l ø | fr
+oise | w a z | fr
+omphale | ɔ̃ f a l | fr
+opéra | ɔ p e ʁ a | fr
+oreste | o ʁ ɛ s t | fr
+orléans | ɔ ʁ l e ɑ̃ | fr
+ormes | ɔ ʁ m | fr
+pacaud | p a k o | fr
+paillerie | p a j ʁ i | fr
+pailletin | p a j t ɛ̃ | fr
+palicares | p a l i k a ʁ | fr
+palikaris | p a l i k a ʁ i | fr
+palissy | p a l i s i | fr
+pamphile | p ɑ̃ f i l | fr
+pampinara | p a m p i n a r a | it
+panoline | p a n ɔ l i n | fr
+paoli | p a o l i | it
+paradis | p a ʁ a d i | fr
+parisina | p a ʁ i z i n a | fr
+passy | p a s i | fr
+pastret | p a s t ʁ ɛ | fr
+pastrini | p a s t ʁ i n i | fr
+paulyanthe | p o l j ɑ̃ t | fr
+peccato | p e k k a ˈt o r e | it
+pede | p e d e | it
+pelion | p ə l j ɔ̃ | fr
+penelon | p ə n ɛ l ɔ̃ | fr
+peppino | p e p p i n o | it
+permesso | p e r m e s s o | it
+perpignan | p ɛ ʁ p i ɲ ɑ̃ | fr
+perrault | p ɛ ʁ o | fr
+perugia | p e r u d͡ʒ a | it
+perugino | p e r u ˈd͡ʒ i n o | it
+peuchet | p ø ʃ ɛ | fr
+phaedrus | f a d ʁ y | la
+pharaon | f a ʁ a ɔ̃ | fr
+philebus | f i l b y | fr
+phocéens | f ɔ s e | fr
+phryne | f ʁ i n | fr
+phèdre | f ɛ d ʁ | fr
+picaud | p i k o | fr
+pichot | p i ʃ o | fr
+picpus | p i k p y s | fr
+pietro | p j ɛ t r o | it
+pignerol | p i ɲ ə ʁ ɔ l | fr
+pillon | p i j ɔ̃ | fr
+pince | p ɛ̃ s | fr
+pincio | p ɛ̃ s j o | fr
+pinde | p ɛ̃ d | fr
+pindus | p ɛ̃ d y | fr
+pinelli | p i n e l l i | it
+piombino | p j o m ˈb i n o | it
+piqué | p i k e | fr
+pirron | p i ʁ ɔ̃ | fr
+pisani | p i z a n i | it
+pitou | p i t u | fr
+pitti | p i t t i | it
+pixérécourt | p i z e ʁ e k u ʁ | fr
+plaine | p l ɛ n | fr
+planché | p l ɑ̃ ʃ e | fr
+planier | p l a n j e | fr
+poena | p ɔ n a | la
+poissonnière | p w a s ɔ n j ɛ ʁ | fr
+policar | p ɔ l i k a ʁ | fr
+polichinelli | p ɔ l i ʃ i n ɛ l i | fr
+polidori | p o l i d o ʁ i | fr
+poliska | p ɔ l i s k a | fr
+polytechnique | p ɔ l i t ɛ k n i k | fr
+pomègue | p ɔ m ɛ ɡ | fr
+pontefici | p o n ˈt e f i t͡ʃ i | it
+ponthieu | p ɔ̃ t j ø | fr
+ponticus | p ɔ̃ t i k y | la
+popolo | ˈp ɔ p o l o | it
+poppaea | p o p p a e a | it
+porpora | ˈp o r p o r a | it
+posto | p o s t o | it
+poulmann | p u l m a n | fr
+presse | p ʁ ɛ s | fr
+proprio | p ʁ ɔ p ʁ i j o | fr
+protégé | p ʁ ɔ t e ʒ e | fr
+protégés | p ʁ ɔ t e ʒ e | fr
+provençal | p ʁ ɔ v ɑ̃ s a l | fr
+préfet | p ʁ e f ɛ | fr
+prés | p ʁ e | fr
+président | p ʁ e z i d ɑ̃ | fr
+puros | p y ʁ o | fr
+puzzoli | p u t t͡s o l i | it
+pâté | p a t e | fr
+père | p ɛ ʁ | fr
+pères | p ɛ ʁ | fr
+pépinière | p e p i n j ɛ ʁ | fr
+périer | p e ʁ j e | fr
+pétion | p e t j ɔ̃ | fr
+quaerens | k w a ʁ ɑ̃ | la
+quattro | ˈk w a t t r o | it
+quesnel | k n ɛ l | fr
+quum | k u m | la
+quà | k a | fr
+radelle | ʁ a d ɛ l | fr
+ragazzi | r a ɡ a t t͡s i | it
+ranelagh | ʁ a n l a ɡ | fr
+rashid | ʁ a ʃ i d | fr
+rastignac | ʁ a s t i ɲ a k | fr
+ratonneau | ʁ a t ɔ n o | fr
+reggio | r e d d͡ʒ o | it
+reichstadt | ʁ a eː ç s t a t | de
+reine | ʁ ɛ n | fr
+renaud | ʁ ə n o | fr
+rendez | ʁ ɑ̃ d e | fr
+rené | ʁ ə n e | fr
+renée | ʁ ə n e | fr
+renés | ʁ ə n e | fr
+rhône | ʁ o n | fr
+rimini | r i m i n i | it
+riou | ʁ j u | fr
+ripetta | r i p e t t a | it
+rivoli | r i v o l i | it
+robbia | r o b b i a | it
+rocca | r o k k a | it
+rogliano | r o ʎ ˈʎ a n o | it
+romagna | r o m a ɲ ɲ a | it
+rondolo | r o n d o l o | it
+rospigliosi | r o s p i ʎ ʎ o z i | it
+rospoli | r o s p o l i | it
+roule | ʁ u l | fr
+rouvroy | ʁ u v ʁ w a | fr
+ruggieri | r u d ˈd͡ʒ ɛ r i | it
+ruggieris | r u d ˈd͡ʒ e r i s | it
+ruthwen | ʁ y t w ɛ n | fr
+rutwen | ʁ y t w ɛ n | fr
+râpée | ʁ a p e | fr
+réserve | ʁ e z ɛ ʁ v | fr
+réunion | ʁ e y n j ɔ̃ | fr
+révolution | ʁ e v ɔ l y s j ɔ̃ | fr
+sallon | s a l ɔ̃ | fr
+salvieux | s a l v j ø | fr
+santità | s a n t i ˈt a | it
+saravezza | s a r a v e t t͡s a | it
+sartène | s a ʁ t ɛ n | fr
+saône | s o n | fr
+sbogar | s b ɔ ɡ a ʁ | fr
+scendi | ʃ e n d i | it
+schnetz | ʃ n ɛ s | fr
+scyros | s k i ʁ o | fr
+sebastiano | s e b a s ˈt j a n o | it
+selim | s e l ɛ̃ | fr
+senac | s ə n a k | fr
+senlis | s ɑ̃ l i | fr
+septimus | s ɛ p t i m y | fr
+servieux | s ɛ ʁ v j ø | fr
+servières | s ɛ ʁ v j ɛ ʁ | fr
+sette | ˈs ɛ t t e | it
+severus | s ə v ə ʁ y | la
+sigismund | s i ʒ i s m u n d | fr
+simoun | s i m u n | fr
+sisteron | s i s t ə ʁ ɔ̃ | fr
+sistina | s i s t i n a | it
+siècle | s j ɛ k l | fr
+soirée | s w a ʁ e | fr
+sonino | s o ˈn i n o | it
+sonnino | s o n ˈn i n o | it
+sono | ˈs o n o | it
+spada | ˈs p a d a | it
+spadas | s p a ˈd a s | it
+spagna | ˈs p a ɲ ɲ a | it
+spectaculis | s p ɛ k t a k y l i | la
+speronare | s p e r o ˈn a r e | it
+stathouder | s t a t u d e | fr
+storta | ˈs t ɔ r t a | it
+strada | ˈs t r a d a | it
+substitut | s y p s t i t y | fr
+substituts | s y b s t i t y | fr
+sulpice | s y l p i s | fr
+suo | ˈs u o | it
+surdis | s y ʁ d i | fr
+syrie | s i ʁ i | fr
+sèvres | s ɛ v ʁ | fr
+ségur | s e ɡ y ʁ | fr
+sémaphore | s e m a f ɔ ʁ | fr
+taormina | t a o r m i n a | it
+taramis | t a ʁ a m i | fr
+tarascon | t a ʁ a s k ɔ̃ | fr
+tarasque | t a ʁ a s k | fr
+tavoletta | t a v o ˈl e t t a | it
+tavolette | t a v o l e t t e | it
+tchodoars | t ʃ ɔ d ɔ a ʁ | fr
+teatro | t e ˈa t r o | it
+tebelin | t ə b l ɛ̃ | fr
+tekel | t ɛ k ɛ l | fr
+telesiphe | t ɛ l z i f | fr
+tenacem | t ə n a s m | la
+teniers | t ə n j e | fr
+terlini | t e r l i n i | it
+terracina | t e r r a t͡ʃ i n a | it
+thalberg | t a l b ɛ ʁ k | de
+thorwaldsen | t ɔ ʁ v a l t z ə n | de
+théodule | t e o d y l | fr
+théâtre | t e a t ʁ | fr
+tiboulen | t i b u l | fr
+tirés | t i ʁ e | fr
+tmolus | t m ɔ l y | fr
+tofana | t o f a n a | it
+tokareva | t ɔ k a ʁ ə v a | fr
+torlonia | t o r l o n i a | it
+torre | ˈt o r r e | it
+tortilly | t ɔ ʁ t i j i | fr
+tournon | t u ʁ n ɔ̃ | fr
+trahiret | t ʁ a i ʁ ɛ | fr
+trasteveran | t ʁ a s t v ə ʁ ɑ̃ | fr
+trenck | t ʁ ɑ̃ k | fr
+trenk | t ʁ ɑ̃ k | fr
+trestaillon | t ʁ ɛ s t a j ɔ̃ | fr
+trieste | t ʁ j ɛ s t | fr
+trinette | t ʁ i n ɛ t | fr
+trocadero | t ʁ ɔ k a d ə ʁ o | fr
+truphemy | t ʁ y f m i | fr
+tréport | t ʁ e p ɔ ʁ | fr
+trône | t ʁ o n | fr
+tullia | t y l j a | fr
+turque | t y ʁ k | fr
+télémaque | t e l e m a k | fr
+tête | t ɛ t | fr
+ugolino | u ɡ o ˈl i n o | it
+umberto | u m b e r t o | it
+ungher | œ̃ ɡ e | fr
+uzès | y z ɛ | fr
+vaccino | v a t ˈt͡ʃ i n o | it
+valmontone | v a l ˈm ɔ n t o n e | it
+valère | v a l ɛ ʁ | fr
+valérien | v a l e ʁ j ɛ̃ | fr
+vampa | v ɑ̃ p a | fr
+variétés | v a ʁ j e t e | fr
+vasiliki | v a z i l i k i | fr
+vatel | v a t ɛ l | fr
+vaugirard | v ɔ ʒ i ʁ a ʁ | fr
+vecchia | v e k k j a | it
+vecchio | ˈv ɛ k k j o | it
+velletri | v e l l e t r i | it
+vendôme | v ɑ̃ d o m | fr
+vente | v ɑ̃ t | fr
+venusia | v e ˈn u ˈz j a | it
+verschwörung | f ɛ ɐ ʃ v øː ʁ ʊ ŋ | de
+veuves | v œ v | fr
+victoire | v i k t w a ʁ | fr
+vieilles | v j ɛ j | fr
+vieux | v j ø | fr
+vigny | v i ɲ i | fr
+viktoria | v ɪ k t oː ʁ iː a | de
+villefort | v i l f ɔ ʁ | fr
+villeforts | v i l f ɔ ʁ | fr
+villejuif | v i l ʒ ɥ i f | fr
+villette | v i l ɛ t | fr
+vincennes | v ɛ̃ s ɛ n | fr
+vincoli | v i n k o l i | it
+virum | v i ʁ y m | la
+vittoria | v i t ˈt ɔ r j a | it
+vivere | ˈv i v e r e | it
+vous | v u | fr
+vuillemot | v ɥ i j m o | fr
+véronique | v e ʁ ɔ n i k | fr
+wasilio | w a z i l j o | fr
+zaccone | z a k ɔ n | fr
+zurbaran | z y ʁ b a ʁ ɑ̃ | fr
+âme | a m | fr
+écarté | e k a ʁ t e | fr
+écu | e k y | fr
+écus | e k y | fr
+épée | e p e | fr
+état | e t a | fr
