@@ -19,3 +19,6 @@ tqdm>=4.66.0
 
 # espeak-ng phonemizer (required by kokoro)
 # Windows: Download installer from https://github.com/espeak-ng/espeak-ng/releases
+
+# Dev-only: testing (not required to run the CLI)
+# pip install pytest

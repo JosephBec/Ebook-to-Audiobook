@@ -17,6 +17,7 @@ from src import __version__
 from src.epub_parser import parse_epub
 from src.tts_engine import TTSEngine, SAMPLE_RATE, list_voices
 from src.audiobook_builder import build_m4b, check_ffmpeg
+from src.plex_delivery import deliver, trigger_refresh_from_env, DEFAULT_PLEX_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -187,6 +188,18 @@ Examples:
         "--list-voices",
         action="store_true",
         help="List available voices and exit.",
+    )
+    out_group.add_argument(
+        "--plex",
+        action="store_true",
+        help="After building, move the M4B into the Plex audiobook folder "
+             "(named from the book title) and trigger a Plex rescan if "
+             "PLEX_URL/PLEX_TOKEN/PLEX_SECTION_ID env vars are set.",
+    )
+    out_group.add_argument(
+        "--plex-dir",
+        default=None,
+        help=f"Plex audiobook folder for --plex (default: {DEFAULT_PLEX_DIR}).",
     )
 
     return parser
@@ -410,6 +423,20 @@ def run(args=None):
             cover_image=metadata.cover_image,
             cover_image_ext=metadata.cover_image_ext,
         )
+
+        if opts.plex:
+            chapter_range = None
+            if opts.chapters:
+                orders = [ch.index + 1 for ch in chapters_to_process]
+                chapter_range = (min(orders), max(orders))
+            result_path = deliver(
+                result_path,
+                opts.plex_dir or DEFAULT_PLEX_DIR,
+                metadata.title,
+                chapter_range,
+            )
+            print(f"  Moved to Plex folder: {result_path}")
+            print(f"  {trigger_refresh_from_env()}")
 
         file_size_mb = result_path.stat().st_size / (1024 * 1024)
         print(f"\n{'=' * 60}")

@@ -18,6 +18,7 @@ Kokoro is an open-weight text-to-speech model with 82 million parameters that de
 - **Interactive chapter selection** — Choose which chapters to convert, or convert the whole book
 - **Progress display** — Real-time progress bars with time estimates
 - **Fully terminal-based** — No GUI required, works entirely from the command line
+- **Plex delivery** — Optional `--plex` flag moves the finished M4B straight into your Plex audiobook folder and triggers a library rescan
 
 ## Requirements
 
@@ -184,6 +185,34 @@ python main.py mybook.epub -o "E:\Plex\Audiobooks\"
 # Creates: E:\Plex\Audiobooks\mybook.m4b
 ```
 
+### Deliver Straight to Plex (`--plex`)
+
+If you keep your audiobooks in a Plex library, `--plex` moves the finished M4B into that folder (creating it if needed) and renames it from the book's title — instead of leaving it at `-o`/the default output path:
+
+```bash
+python main.py mybook.epub --plex
+```
+
+By default the file is dropped into `E:\Plex\Audiobooks\Audiobooks`. Override that with `--plex-dir`:
+
+```bash
+python main.py mybook.epub --plex --plex-dir "D:\Media\Audiobooks"
+```
+
+The destination filename is sanitized from the book's title (`<>:"/\|?*` and control characters become spaces, and runs of whitespace are collapsed). If `--chapters` was used to convert only part of the book, the range is appended, e.g. `The Hundred Reigns - Chapters 1 - 5.m4b`; a full-book conversion is just `Title.m4b`.
+
+After the move, the tool tries to trigger a Plex library rescan so the new file shows up immediately, using three environment variables:
+
+| Variable | Purpose |
+|---|---|
+| `PLEX_URL` | Base URL of your Plex server (e.g. `http://localhost:32400`) |
+| `PLEX_TOKEN` | Plex API token |
+| `PLEX_SECTION_ID` | Library section ID for your audiobook library |
+
+If any of these are unset, the refresh is skipped and the tool prints `Plex refresh skipped (set PLEX_URL, PLEX_TOKEN, PLEX_SECTION_ID to enable).` — the file has still been delivered; it just won't appear in Plex until the next scheduled scan.
+
+If the variables are set but Plex can't be reached (e.g. it runs in Docker and the container is down), the tool prints `Plex is unreachable (is Docker running?) — the audiobook will appear after the next library scan.` The file move always happens first and is never rolled back — the refresh call is best-effort and never raises.
+
 ## Real-World Example: Full Walkthrough
 
 Below is a complete, real example converting a light novel EPUB into an M4B audiobook — from start to finish.
@@ -302,6 +331,7 @@ usage: ebook2audiobook [-h] [-o OUTPUT] [--voice VOICE] [--speed SPEED]
                        [--min-chapter-words MIN_CHAPTER_WORDS]
                        [--chapters CHAPTERS] [--phoneme-map PHONEME_MAP]
                        [-v] [--debug] [--list-voices]
+                       [--plex] [--plex-dir PLEX_DIR]
                        [input]
 
 positional arguments:
@@ -326,6 +356,9 @@ Output & Display:
   -v, --verbose         Show detailed progress
   --debug               Show debug logging
   --list-voices         List available voices and exit
+  --plex                Move the finished M4B into a Plex audiobook folder and
+                        trigger a rescan (default folder: E:\Plex\Audiobooks\Audiobooks)
+  --plex-dir PLEX_DIR   Plex audiobook folder for --plex
 ```
 
 ## Available Voices
